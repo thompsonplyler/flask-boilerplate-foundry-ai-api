@@ -65,7 +65,7 @@ def login_account():
 
 def logout_account():
     logout_user()
-    return redirect(url_for("index"))
+    return redirect(url_for("routes.index"))
 
 
 @login_required

@@ -42,6 +42,7 @@ bp.register_error_handler(500, error_views.internal_error)
 
 # Public views
 bp.add_url_rule("/", view_func=static_views.index)
+bp.add_url_rule("/index", view_func=static_views.index)
 
 bp.add_url_rule("/register", view_func=static_views.register)
 
