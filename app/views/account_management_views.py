@@ -29,18 +29,18 @@ def register_account():
     sanitized_username = sanitization.strip_xss(unsafe_username)
     sanitized_email = sanitization.strip_xss(unsafe_email)
 
-    try:
-        user_model = account_management_services.create_account(
+    # try:
+    user_model = account_management_services.create_account(
             sanitized_username, sanitized_email, unhashed_password
-        )
-    except ValidationError as e:
-        return get_validation_error_response(validation_error=e, http_status_code=422)
-    except custom_errors.EmailAddressAlreadyExistsError as e:
-        return get_business_requirement_error_response(
-            business_logic_error=e, http_status_code=409
-        )
-    except custom_errors.InternalDbError as e:
-        return get_db_error_response(db_error=e, http_status_code=500)
+    )
+    # except ValidationError as e:
+    #     return get_validation_error_response(validation_error=e, http_status_code=422)
+    # except custom_errors.EmailAddressAlreadyExistsError as e:
+    #     return get_business_requirement_error_response(
+    #         business_logic_error=e, http_status_code=409
+    #     )
+    # except custom_errors.InternalDbError as e:
+    #     return get_db_error_response(db_error=e, http_status_code=500)
 
     login_user(user_model, remember=True)
 
