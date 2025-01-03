@@ -11,12 +11,12 @@ from app import create_app, db_manager
 from app.models import Account, User, Role, UserRole
 
 
-dotenv_path = os.path.join(os.path.dirname(__file__), ".env")
+dotenv_path = os.path.join(os.path.dirname(__file__), ".flaskenv")
 
 if os.path.exists(dotenv_path):
     load_dotenv(dotenv_path)
 
-
+print(os.getenv("FLASK_CONFIG"))
 app = create_app(os.getenv("FLASK_CONFIG") or "dev")
 
 
