@@ -15,8 +15,17 @@ from .views import (
     ai_views
 )
 from .models import User
+from flask_cors import CORS
 
 bp = Blueprint('routes', __name__)
+
+CORS(bp,origins=[
+"http://localhost:5173", 
+"https://dynamic-griffin-6352b5.netlify.app/",
+"https://dynamic-griffin-6352b5.netlify.app",
+"dynamic-griffin-6352b5.netlify.app",
+"34.234.106.80:443"
+])
 
 # alias
 db = db_manager.session
