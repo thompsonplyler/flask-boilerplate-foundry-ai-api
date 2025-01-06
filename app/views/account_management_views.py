@@ -18,10 +18,6 @@ from ..utils.error_utils import (
 
 
 def register_account():
-    print("Request")
-    print(request)
-    print("Request.json")
-    print(request.json)
     unsafe_username = request.json.get("username")
     unsafe_email = request.json.get("email")
     unhashed_password = request.json.get("password")

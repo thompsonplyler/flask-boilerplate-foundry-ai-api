@@ -12,6 +12,7 @@ from .views import (
     error_views,
     account_management_views,
     static_views,
+    ai_views
 )
 from .models import User
 
@@ -73,3 +74,9 @@ bp.add_url_rule(
 
 # Admin required
 bp.add_url_rule("/admin", view_func=static_views.admin)
+
+# Test connection
+bp.add_url_rule("/test", view_func=static_views.test_connection)
+
+# AI Query
+bp.add_url_rule("/api/prompt_openai", view_func=ai_views.prompt_openai, methods=["POST", "GET"])

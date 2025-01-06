@@ -1,7 +1,7 @@
 # Standard Library imports
 
 # Core Flask imports
-from flask import render_template
+from flask import render_template, jsonify
 
 # Third-party imports
 from flask_login import login_required
@@ -20,6 +20,9 @@ def register():
 
 def login():
     return render_template("login.html")
+
+def test_connection():
+    return jsonify({"message": "success"})
 
 
 @login_required
