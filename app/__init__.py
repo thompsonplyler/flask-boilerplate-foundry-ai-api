@@ -6,6 +6,7 @@ import os
 # Core Flask imports
 from flask import Flask
 from flask_login import LoginManager
+from flask_cors import CORS
 
 # Third-party imports
 
@@ -45,6 +46,7 @@ def load_logs(app):
 
 def create_app(config_name):
     app = Flask(__name__)
+    CORS(app,origins=["http://localhost:5173", "https://dynamic-griffin-6352b5.netlify.app/", "34.234.106.80:443"])
     app.config.from_object(config_manager[config_name])
 
     config_manager[config_name].init_app(app)
